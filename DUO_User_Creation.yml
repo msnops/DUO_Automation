@@ -1,0 +1,8 @@
+- name: convert csv to json
+  hosts: localhost
+  tasks:
+    - name: call python script script and get the date and authoraization code
+      script: DUO_Create_User.py '{{DUO_ikey}}' '{{DUO_skey}}' '{{DUO_host}}' '{{DUO_USERNAME}}' '{{DUO_REALNAME}}' '{{PHONE_NUMBER}}' '{{PHONE_TYPE}}' '{{PHONE_PLATFORM}}'
+      args:
+        executable: python3
+      register: user_creation_status
